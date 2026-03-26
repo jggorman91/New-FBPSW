@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FBPSW Studio</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Function-Based Planning</p>
+          <h1>Generate an FBPSW from your best current hypothesis.</h1>
+          <p class="lede">
+            Capture behavior patterns, suspected function, and practical classroom supports, then turn them into a
+            structured worksheet powered by a hosted <span>`Gemini`</span> model with a server-side API key.
+          </p>
+        </div>
+        <div class="hero-card">
+          <p>Designed for early-stage team problem solving</p>
+          <ul>
+            <li>Antecedent strategies</li>
+            <li>Replacement behavior teaching</li>
+            <li>Reinforcement and response planning</li>
+            <li>Progress monitoring targets</li>
+          </ul>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="panel form-panel">
+          <div class="panel-header">
+            <h2>Worksheet Inputs</h2>
+            <button id="sample-button" type="button" class="ghost-button">Load Sample</button>
+          </div>
+
+          <form id="fbpsw-form">
+            <div class="field-grid">
+              <label>
+                <span>Student name</span>
+                <input name="studentName" type="text" placeholder="Jordan" />
+              </label>
+              <label>
+                <span>Grade or age</span>
+                <input name="gradeOrAge" type="text" placeholder="4th grade" />
+              </label>
+            </div>
+
+            <label>
+              <span>Strengths and interests</span>
+              <textarea name="strengths" rows="3" placeholder="Enjoys science, responds to praise, strong verbal skills"></textarea>
+            </label>
+
+            <label>
+              <span>Target behavior</span>
+              <textarea name="targetBehavior" rows="3" placeholder="Leaves seat and refuses written math tasks"></textarea>
+            </label>
+
+            <label>
+              <span>Behavior frequency or intensity</span>
+              <input name="frequencyOrIntensity" type="text" placeholder="3-4 times per week during independent work" />
+            </label>
+
+            <label>
+              <span>Suspected function of behavior</span>
+              <input name="suspectedFunction" type="text" placeholder="Escape or avoidance of difficult academic work" required />
+            </label>
+
+            <div class="field-grid">
+              <label>
+                <span>Known triggers</span>
+                <textarea name="triggers" rows="4" placeholder="One item per line"></textarea>
+              </label>
+              <label>
+                <span>Observed consequences</span>
+                <textarea name="consequences" rows="4" placeholder="One item per line"></textarea>
+              </label>
+            </div>
+
+            <label>
+              <span>Setting events or context factors</span>
+              <textarea name="settingEvents" rows="3" placeholder="Poor sleep&#10;Schedule changes"></textarea>
+            </label>
+
+            <label>
+              <span>Replacement behavior goal</span>
+              <textarea name="replacementBehaviorGoal" rows="3" placeholder="Ask for help or request a short break appropriately"></textarea>
+            </label>
+
+            <label>
+              <span>Support preferences or constraints</span>
+              <textarea name="supportPreferences" rows="3" placeholder="Keep strategies realistic for a general education classroom"></textarea>
+            </label>
+
+            <div class="actions">
+              <button id="submit-button" type="submit" class="primary-button">Generate FBPSW</button>
+              <p id="status-text" class="status-text">Ready to generate.</p>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel output-panel">
+          <div class="panel-header">
+            <h2>Generated Worksheet</h2>
+            <span class="model-badge">Model: gemini-2.5-flash-lite</span>
+          </div>
+          <div id="empty-state" class="empty-state">
+            <p>Your worksheet will appear here with structured sections your team can review and revise.</p>
+          </div>
+          <article id="worksheet-output" class="worksheet-output hidden"></article>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

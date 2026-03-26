@@ -1,0 +1,17 @@
+{
+  "name": "fbpsw-backend",
+  "version": "1.0.0",
+  "description": "Backend service for generating Function Based Problem Solving Worksheets.",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "check": "node --check src/server.js",
+    "pages:dev": "npx wrangler pages dev public",
+    "pages:deploy": "npx wrangler pages deploy public"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

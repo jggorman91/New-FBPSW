@@ -20,6 +20,11 @@ export async function onRequestGet(context) {
     service: "fbpsw-backend",
     provider: "gemini",
     model: context.env.GEMINI_MODEL ?? "gemini-2.5-flash-lite",
-    apiConfigured: Boolean(context.env.GEMINI_API_KEY)
+    apiConfigured: Boolean(context.env.GEMINI_API_KEY),
+    envDebug: {
+      hasGeminiApiKey: Boolean(context.env.GEMINI_API_KEY),
+      hasGeminiModel: Boolean(context.env.GEMINI_MODEL),
+      hasGeminiBaseUrl: Boolean(context.env.GEMINI_BASE_URL)
+    }
   });
 }
